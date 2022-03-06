@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block body_class %}onboarding{% endblock %}
+
+{% block content %}
+
+<div id="warbler-hero" class="full-width"></div>
+<h1 class="detail-header"> <b>Playlist -  {{ playlists.title }}: </b></h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<a href="/users/{{user.id}}" class='fas fa-share' id="return" style='font-size:36px' title="Return to your page"></a>
+
+
+<ol class="song-list">
+  {% for song in songs %}
+  <li class="song-in-playlist">
+    <span class="songname">
+    <b> <span id="{{ song.song_title }}" class="{{ song.song_title }}" style="text-transform: capitalize;">
+        {{ song.song_title }}
+      </span> by </b>
+    <b> <span id="{{ song.song_artist }}" class="{{ song.song_artist }}" style="text-transform: capitalize;">
+        {{ song.song_artist }}
+      </span>
+    </b>
+    </span>
+  
+  <div class="iframe"><div id="something"><button onclick="showLyrics()" class="{{song.song_title}}" id="{{song.song_artist}}">L</button>
+    <iframe src="https://open.spotify.com/embed/track/{{ song.spotify_song_id }}" width="300" height="80" frameborder="0"
+      allowtransparency="true" allow="encrypted-media" style="border-radius: 5px; border: 1px solid rgb(2, 151, 27);"></iframe>
+  </div></div>
+  <div class="delete">
+    <form method="POST" action="/users/{{ user.id }}/playlists/{{ playlists.id }}/song/{{ song.id }}/delete"
+      class="song-in-play">
+      <button id="delete-song" class="btn btn-danger btn-block btn-md" title="Delete From Playlist">X</button>
+  </div>
+  </form>
+</li>
+  {% endfor %}
+</ol>
+
+
+<div class="search-new-song">
+  <form action="/users/{{ user.id }}/playlists/{{ playlists.id }}" method="POST" class="lyrics-search">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden'%}
+    <span id="{{ form.field }}">
+      {{ field }}
+    </span>
+
+
+    {% for err in field.errors %}
+    {{err}}
+    {% endfor %}
+    {% endfor %}
+    <button class="btn btn-dark btn-block btn-md" id="playlist_btn" title="Add to Playlist"
+      style="visibility: hidden;"><b><span>&#43;</span></b></button>
+  </form>
+
+
+
+  <div class="card-body">
+    <h3 class="card-title">Lyrics for the Song:</h3>
+    <div id="output"></div>
+  </div>
+
+
+  <button onclick="findlyrics(),checkForLyrics(), showButton(x)" class="btn btn-success btn-block btn-md"
+    id="lyrics-search-btn">Find Lyrics</button>
+</div>
+
+<script src="/static/js/js.js"></script>
+
+
+
+{% endblock %}

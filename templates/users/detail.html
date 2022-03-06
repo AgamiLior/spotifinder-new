@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block body_class %}onboarding{% endblock %}
+
+{% block content %}
+
+<div id="warbler-hero" class="full-width"></div>
+<h1 class="detail-header">Welcome {{ user.username }}!</h1>
+<img src="{{ user.image_url }}" alt="Image for {{ user.username }}" id="profile-avatar">
+<div class="row full-width">
+  <div>
+    <div class="row justify-content-end">
+      <div class="col-9">
+        <ul class="user-stats nav nav-pills">
+          <!-- <div class="col-sm-3">
+            <h4 id="sidebar-username">{{ user.username }}</h4>
+          </div> -->
+          <div class="ml-auto">
+            {% if g.user.id == user.id %}
+            <a href="/users/profile" class="btn btn-outline-dark">Edit Profile</a>
+            &nbsp;
+            <form method="POST" action="/users/{{user.id}}/delete" class="form-inline">
+              <button class="btn btn-outline-danger ml-2">Delete Profile</button>
+            </form>
+            {% endif %}
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h3 style="text-transform: capitalize">{{ user.username }}'s Playlists:</h3>
+  <ul>
+    {% for playlist in playlists %}
+    <form method="POST" action="/users/{{ user.id }}/playlists/{{ playlist.id }}/delete">
+    <li>
+      <a href="/users/{{ user.id }}/playlists/{{ playlist.id }}" class="btn btn-success btn-outline-dark btn-lg" style="margin-top: 5px;"">{{ playlist.title }}</a>
+      <button class="btn btn-danger btn-block btn-sm" title="Delete Playlist" style="margin-left: 500px;">X</button>
+    </li>
+    </form>
+    {% endfor %}
+  </ul>
+  <form method="POST" id="playlist_form">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    {% for error in field.errors %}
+    <span class="text-danger">{{ error }}</span>
+    {% endfor %}
+    {{ field(placeholder=field.label.text, class="form-control") }}
+    {% endfor %}
+
+    <button class="btn btn-primary btn-block btn-lg">Create new Playlist</button>
+  </form>
+</div>
+<div class="row">
+
+
+  {% block user_details %}
+  {% endblock %}
+
+</div>
+
+{% endblock %}

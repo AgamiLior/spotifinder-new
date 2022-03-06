@@ -1,0 +1,738 @@
+/* ====================== General */
+
+#return{
+position: absolute;
+left: 150px;
+top: 100px;
+}
+
+body {
+  background-color: rgb(190, 190, 190);
+}
+
+body.error-404 {
+  background-color: #00b900;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.btn {
+  border-radius: 50px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+/* ======================= Nav */
+
+.detail-header {
+  color: black;
+  position: relative;
+  top: -300px;
+  font-family:'Courier New', Courier, monospace;
+  text-transform: capitalize;
+}
+
+.navbar {
+  background-color: #fff;
+  height: 46px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 9999;
+}
+
+.navbar a {
+  color: #66757f;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  color: #00b900;
+}
+
+#logout a:hover {
+  color: red;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+}
+
+.spotifinder {
+  position:static;
+  left: 200px;
+  height: 270px;
+  width: 270px;
+}
+
+.navbar-brand > img {
+  display: inline-block;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  width: 20px;
+  border-radius: 2px;
+}
+
+.nav > li > a > img {
+  width: 32px;
+  border-radius: 32px;
+}
+
+ul.nav.navbar-nav {
+  align-items: center;
+}
+
+ul.nav.navbar-nav li {
+  margin: 0 0.5rem;
+  display: flex;
+}
+
+nav form.navbar-form {
+  display: flex;
+  position: relative;
+}
+
+#search.form-control {
+  border-radius: 20px;
+  margin-bottom: 0;
+  width: 80%;
+  font-size: 13px;
+  padding-right: 28px;
+  box-sizing: border-box;
+}
+
+#search.form-control + .btn {
+  position: absolute;
+  right: 250px;
+  top: -30px;
+  bottom: 10px;
+  z-index: 1;
+  padding: 0;
+  color: #66757f;
+  size: 160px ;
+}
+
+#search.form-control + .btn:active,
+#search.form-control + .btn:focus {
+  box-shadow: none;
+}
+
+#search:active,
+#search:focus {
+  box-shadow: none;
+  border: 2px solid #00b900;
+}
+
+/* on "onboarding" pages (signup & login), the navbar is
+   different: no search box, the logo is centered, and it has
+   a background color.
+ */
+
+.onboarding > .navbar {
+  background-image: url("/static/images/nav-bg.png");
+  background-size: 100% 100%;
+}
+
+.onboarding .navbar-header {
+  margin: 0 auto;
+}
+
+.onboarding .navbar-brand {
+  margin: 0;
+}
+
+.onboarding .navbar-brand span {
+  display: none;
+}
+
+.onboarding .nav.navbar-nav.navbar-right {
+  position: absolute;
+  right: 16px;
+}
+
+.onboarding > .navbar a {
+  color: #fff;
+}
+
+.onboarding > .navbar form.navbar-form {
+  display: none;
+}
+
+.onboarding {
+  background-color: rgb(160, 160, 160);
+}
+
+@media (max-width: 468px) {
+  nav form.navbar-form {
+    display: none;
+  }
+}
+
+nav + .container {
+  margin-bottom: 1rem;
+}
+
+/* ===================== User profile */
+
+.join-message {
+  margin-top: 100px;
+}
+
+#profile-image,
+#profile-avatar {
+  border-radius: 100%;
+  display: block;
+  margin-left: -15px;
+  top: -150px;
+}
+
+#profile-image {
+  margin: 0 auto 15px;
+  width: 100%;
+}
+
+#profile-avatar {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #fff;
+  margin-top: -120px;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 1px 1px rgba(136, 153, 166, 0.15);
+}
+
+.timeline-image {
+  border-radius: 48px;
+  height: 48px;
+  width: 48px;
+  margin-top: 2px;
+}
+
+.message-area,
+.timeline-image {
+  display: inline-block;
+}
+
+.message-area {
+  margin-left: 10px;
+}
+
+#warbler-hero {
+  height: 360px;
+  margin-top: -16px;
+  opacity: 0.7;
+  background-size: cover;
+  background-position: top center;
+}
+
+.full-width {
+  width: 100vw;
+  margin: 0 -50vw;
+  position: relative;
+  top: -150px;
+  left: 50%;
+  right: 50%;
+}
+
+.row.full-width {
+  background-color: #66757f;
+  margin-top: -80px;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  height: 60px;
+  align-items: center;
+}
+
+.user-stats > .ml-auto {
+  display: flex;
+  align-items: center;
+}
+
+.user-stats > .ml-auto .btn {
+  min-width: 105px;
+  padding: 6px 16px;
+}
+
+.stat {
+  text-align: center;
+  height: 60px;
+  box-sizing: border-box;
+  padding: 14px 15px 7px;
+  line-height: 1;
+}
+
+.stat > .small {
+  color: #657786;
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin-bottom: 0;
+}
+
+.stat > .small + h4 {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 3px;
+}
+
+#messages {
+  position: relative;
+}
+
+#messages .message-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#messages .list-group-item a:not(.message-link) {
+  position: relative;
+  z-index: 2;
+}
+
+#messages .list-group-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 7px 20px 12px;
+}
+
+#messages:not(.no-hover) .list-group-item:hover {
+  background-color: #e6ecf0;
+}
+
+#sidebar-username {
+  margin-top: 30px;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 28px;
+  word-wrap: break-word;
+  color:#00b900;
+  left: -50px;
+}
+
+@media (max-width: 768px) {
+  .full-width .user-stats .stat {
+    display: none;
+  }
+}
+
+.user-location {
+  color: #657786;
+}
+
+/* ==================== User cards on follower/following pages */
+
+.user-card {
+  width: 100%;
+  padding-bottom: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  position: relative;
+  background: white;
+  margin-top: 20px;
+}
+
+.user-card > div {
+  position: absolute;
+  background: white;
+}
+
+.user-card form {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.user-card form .btn {
+  min-width: 89px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+.card-hero {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.card-image {
+  border: 3px solid #fff;
+  border-radius: 70px;
+  height: 170px;
+  width: 170px;
+  margin-top: -35px;
+  margin-left: 550px;
+  position: relative;
+  z-index: 1;
+}
+
+.card-link {
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+}
+
+.card-link > p {
+  margin-left: 590px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.song-list {
+  position: relative;
+  color: #022b03;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;  
+  left: -100px;
+  top: -280px;
+}
+
+.song-in-playlist {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  width: 26%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 5px;
+  position: relative;
+
+}
+.song-in-play {
+  position: relative;
+}
+
+.songg {
+  position: relative;
+  top: -20px;
+  left: 200px;
+}
+
+.user-cards {
+  margin-bottom: 20px;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.image-wrapper {
+  width: 100%;
+  padding-bottom: 36%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-contents {
+  display: flex;
+  justify-content: space-between;
+}
+
+p.card-bio {
+  margin: 2em 10px 0;
+}
+
+
+.lyrics-search {
+  right: 350px;
+  top: 300px;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+#lyrics-search-btn {
+  top: 70px;
+  right: 200px;
+  width: 20%;
+  position: absolute;
+}
+
+.search-new-song{
+  position: absolute;
+  border: 1px outset black;
+  border-radius: 25px;
+  width: 50%;
+  top: 175px;
+  left: 700px;
+}
+
+.card-body {
+  background-color: rgb(190, 190, 190);
+  border: 3px solid black;
+  border-radius: 15px;
+  right: 350px;
+  top: 200px;
+  width: 50%;
+  margin: 10px;
+}
+
+#playlist_btn {
+  color: #00b900;
+  right: 100px;
+  top: 70px;
+  right: 500px;
+  width: 10%;
+  position: absolute;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: #00b900;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(68, 68, 68);
+}
+#playlist_btn:hover {background-color: #3e8e41}
+
+#playlist_btn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+.delete {
+  position: relative;
+  left: 100px;
+  top: -70px;
+}
+
+.songname {
+  color: #022b03;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+
+}
+
+#delete-song {
+  position: relative;
+  padding: 10px;
+  top: -50px;
+  left: 150px;
+  width: 50px;
+}
+
+.iframe {
+  position: relative;
+  padding: 10px;
+  top: 40px;
+}
+/* ============================ Signed out home */
+
+.home-hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  left: 0;
+  z-index: -1;
+  background-image: url("/static/images/spotifinder-bg.png");
+  background-size: cover;
+  background-position: center center;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1rem;
+  text-shadow: 0 0 5px #09ff00;
+}
+
+.backgroundimg {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  left: 0;
+  z-index: -1;
+  background-image: url("/static/images/spotifinder-bg.png");
+  background-size: cover;
+  background-position: center center;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1rem;
+  text-shadow: 0 0 5px #09ff00;
+
+}
+
+.welcome {
+  top: 90px;
+  position: absolute;
+  
+}
+
+.buttons {
+  margin-top: 100px;
+}
+
+.home-hero .btn {
+  text-shadow: none;
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  margin: 25px;
+}
+
+.home-hero .btn:hover {
+  background-color: #00b900;
+  border: black;
+
+}
+
+#login-btn:hover {
+  background-color: #00b900;
+  border: black;
+
+}
+
+.home-hero h1 {
+  margin-bottom: 4rem;
+}
+
+.home-hero:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================== Signed in Home */
+
+#home-aside > .user-card {
+  margin-top: 0;
+  overflow: hidden;
+}
+
+#home-aside > .user-card .card-link {
+  display: flex;
+}
+
+#home-aside > .user-card .card-link > p {
+  margin-left: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+#home-aside > .user-card .stat {
+  padding: 14px 0 7px;
+}
+
+#home-aside > .user-card .user-stats {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+#home-aside > .user-card > div {
+  width: 100%;
+}
+
+#home-aside .card-link > p {
+  position: relative;
+}
+
+#home-aside .stat h4 {
+  text-align: left;
+}
+
+/* ========================== Signup/Login */
+
+#user_form input.form-control {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+}
+
+/* =========================== Edit Page */
+
+.edit-btn-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-btn-area > .btn {
+  width: 48%;
+}
+
+/* =========================== Message Show page */
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #62676c;
+}
+
+#messages.no-hover .message-area {
+  width: 100%;
+}
+
+#messages.no-hover .message-heading {
+  display: flex;
+  justify-content: space-between;
+  height: 47px;
+  margin-top: 3px;
+}
+
+#messages.no-hover .message-heading .btn {
+  min-width: 105px;
+}
+
+#messages-form {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 1;
+}
+
+.single-message {
+  font-size: 27px;
+  line-height: 32px;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+}
+
+/* ================================ 404 page */
+
+.message-404 {
+  color: white;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.message-404 a {
+  color: white;
+}
+
+.message-404 > h4.display-4 {
+  font-size: 2.5em;
+}
+
+.message-404 .form-inline input {
+  flex: 1;
+}
