@@ -7,8 +7,8 @@ function findlyrics() {
   }
 
 function showLyrics() {
-  let artist = $('#song.song_artist').value
-  let title = $('.song.song_title').value
+  let artist = $('#artist').text()
+  let title = $('#songTitle').text()
   console.log(artist)
   console.log(title)
   $.get("https://api.lyrics.ovh/v1/" + artist + "/" + title,

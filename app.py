@@ -7,7 +7,6 @@ from flask import Flask, render_template, request, flash, redirect, session, g, 
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 from spotify_client import SpotifyClient
-from refresh import Refresh
 
 from forms import *
 from models import *
