@@ -25,11 +25,13 @@
     </b>
     </span>
   
-  <div class="iframe"><div id="something"><button onclick="showLyrics()">L</button><div style="display:none;" id="artist">{{song.song_artist}}</div>
-  <div style="display:none;" id="songTitle">{{song.song_title}}</div>
-    <iframe src="https://open.spotify.com/embed/track/{{ song.spotify_song_id }}" width="300" height="80" frameborder="0"z
+  <div class="iframe">
+    <button onclick="showLyrics(event)">Lyrics</button>
+    <div style="display:none;" class="artist">{{song.song_artist}}</div>
+    <div style="display:none;" class="songTitle">{{song.song_title}}</div>
+    <iframe src="https://open.spotify.com/embed/track/{{ song.spotify_song_id }}" width="300" height="80" frameborder="0"
       allowtransparency="true" allow="encrypted-media" style="border-radius: 5px; border: 1px solid rgb(2, 151, 27);"></iframe>
-  </div></div>
+  </div>
   <div class="delete">
     <form method="POST" action="/users/{{ user.id }}/playlists/{{ playlists.id }}/song/{{ song.id }}/delete"
       class="song-in-play">

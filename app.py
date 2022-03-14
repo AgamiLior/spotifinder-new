@@ -1,12 +1,11 @@
-from crypt import methods
 import os
-from urllib import response
 from xml.dom.minidom import Document
 import requests
-from flask import Flask, render_template, request, flash, redirect, session, g, abort
+from flask import Flask, render_template, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 from spotify_client import SpotifyClient
+from refresh import Refresh
 
 from forms import *
 from models import *
@@ -118,7 +117,7 @@ def logout():
 ##############################################################################
 #Playlists and Songs
 
-
+"""Shows song in a specific playlist"""
 @app.route('/users/<int:user_id>/playlists/<int:playlists_id>', methods=["GET","POST"])
 
 def add_song_to_playlist(user_id,playlists_id):
@@ -138,9 +137,7 @@ def add_song_to_playlist(user_id,playlists_id):
         spotify_client = SpotifyClient()
         spotify_client.call_refresh()
         spotify_song_id = spotify_client.search_song(song_artist,song_title)
-        spotify_song_name = spotify_client.search_song_name(song_artist,song_title)
-        spotify_artist_name = spotify_client.search_artist_name(song_artist,song_title)
-        new_song = Song(song_title=spotify_song_name, song_artist=spotify_artist_name, playlist_id=playlist_id, spotify_song_id=spotify_song_id)
+        new_song = Song(song_title=song_title, song_artist=song_artist, playlist_id=playlist_id, spotify_song_id=spotify_song_id)
         db.session.add(new_song)
         db.session.commit()
 
@@ -152,7 +149,7 @@ def add_song_to_playlist(user_id,playlists_id):
         
     return render_template("users/playlists.html",songs=songs, playlists=playlists, user=user, form=form, user_id=user_id, playlists_id=playlists_id)
 
-
+"""Delete a song from a playlist"""
 @app.route('/users/<int:user_id>/playlists/<int:playlists_id>/song/<int:song_id>/delete', methods=["POST"])
 def delete_song_from_playlist(user_id, playlists_id, song_id):
     """Delete Song from Playlist"""
@@ -168,7 +165,7 @@ def delete_song_from_playlist(user_id, playlists_id, song_id):
     
     return redirect(f"/users/{ user_id }/playlists/{ playlists_id }")
 
-
+"""Delete Playlist from user's page"""
 @app.route('/users/<int:user_id>/playlists/<int:playlists_id>/delete', methods=["POST"])
 def delete_playlist(user_id, playlists_id):
     """Delete Playlist from User's Page"""
@@ -183,7 +180,7 @@ def delete_playlist(user_id, playlists_id):
 ##############################################################################
 # General user routes:
 
-
+"""Show user's page"""
 @app.route('/users/<int:user_id>', methods=["GET", "POST"])
 def users_show(user_id):
     """Show user profile."""
@@ -211,7 +208,7 @@ def users_show(user_id):
 
 
 
-
+"""Edit's user profile"""
 @app.route('/users/profile', methods=["GET", "POST"])
 def profile():
     """Update profile for current user."""
@@ -239,7 +236,7 @@ def profile():
 
     return render_template('users/edit.html', user_id=user.id, form=form)
 
-
+"""Delete User's profile"""
 @app.route('/users/<int:user_id>/delete', methods=["POST"])
 def delete_user(user_id):
     """Delete user."""
