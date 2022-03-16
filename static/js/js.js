@@ -1,20 +1,23 @@
-function findlyrics() {
-  $.get("https://api.lyrics.ovh/v1/" + this.document.getElementById("song_artist").value + "/" + this.document.getElementById("song_title").value,
+function lyrics(artist, title) {
+  $.get("https://api.lyrics.ovh/v1/" + artist + "/" + title,
     function (data) {
       var result = document.getElementById("output")
       result.innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>").replace('Paroles de la chanson', ' ').replace('par', 'by').bold();
     })
 }
+function findlyrics() {
+  let artist = this.document.getElementById("song_artist").value
+  let title = this.document.getElementById("song_title").value
+
+  lyrics(artist, title)
+}
 
 function showLyrics(event) {
-  let artist = $( event.target ).closest( '.iframe' ).find('.artist').text()
-  let title = $( event.target ).closest( '.iframe' ).find('.songTitle').text()
+  let artist = $(event.target).closest('.iframe').find('.artist').text()
+  let title = $(event.target).closest('.iframe').find('.songTitle').text()
 
-  $.get("https://api.lyrics.ovh/v1/" + artist + "/" + title,
-  function (data) {
-    var result = document.getElementById("output")
-    result.innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>").replace('Paroles de la chanson', ' ').replace('par', 'by').bold();
-  })
+  lyrics(artist,title)
+
 }
 
 

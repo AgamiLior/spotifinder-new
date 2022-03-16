@@ -505,8 +505,13 @@ p.card-bio {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+.lyricsBtn {
+  font-family: 'Courier New', Courier, monospace;
 
-
+}
+.lyricsBtn:focus{
+  background-color: #3e8e41;
+}
 .delete {
   position: relative;
   left: 100px;
