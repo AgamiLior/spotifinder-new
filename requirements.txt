@@ -131,7 +131,7 @@ tornado==6.1
 traitlets
 Twisted==18.9.0
 typing-extensions==3.10.0.0
-urllib3==1.26.9
+urllib3
 virtualenv==20.4.7
 wadllib==1.3.3
 wcwidth==0.1.7
