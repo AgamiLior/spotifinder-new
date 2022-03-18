@@ -65,6 +65,7 @@ launchpadlib==1.10.13
 lazr.restfulclient==0.14.2
 lazr.uri==1.0.3
 Mako==1.1.0
+manimce==0.1.1.post2
 Markdown==3.1.1
 MarkupSafe==1.1.1
 matplotlib-inline==0.1.2
