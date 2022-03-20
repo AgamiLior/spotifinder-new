@@ -1,11 +1,8 @@
 import os
-from xml.dom.minidom import Document
-import requests
 from flask import Flask, render_template, flash, redirect, session, g
 from flask_debugtoolbar import DebugToolbarExtension
 from sqlalchemy.exc import IntegrityError
 from spotify_client import SpotifyClient
-from refresh import Refresh
 
 from forms import *
 from models import *
@@ -17,7 +14,7 @@ app = Flask(__name__)
 # Get DB_URI from environ variable (useful for production/testing) or,
 # if not set there, use development local db.
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    os.environ.get('DATABASE_URL', 'postgresql:///spotifinder'))
+    os.environ.get('DATABASE_URL', 'postgresql://spotifinder'))
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
