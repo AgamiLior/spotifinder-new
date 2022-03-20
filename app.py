@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Get DB_URI from environ variable (useful for production/testing) or,
 # if not set there, use development local db.
 app.config['SQLALCHEMY_DATABASE_URI'] = (
-    os.environ.get('DATABASE_URL', 'postgresql:///spotifinder'))
+    os.environ.get('DATABASE_URL', 'postgres://almchwaoyrsfvt:a9e8d99b5553cbfca0a978638c1a36dd47aeef144481b898e8a0555d9e20ff1c@ec2-54-158-26-89.compute-1.amazonaws.com:5432/dbs60i9tsr4kae'))
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
