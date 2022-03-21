@@ -31,7 +31,7 @@ SQLALCHEMY
 HEROKU
 ```
 ## DataBase
- ![ ](https://raw.githubusercontent.com/AgamiLior/spotifinder-new/main/table.png "DB-Table") 
+ ![ ](https://raw.githubusercontent.com/AgamiLior/spotifinder-new/main/DB-Table.png "DB-Table") 
 
 The database is pretty simple and by using certaing constraints with WTForms, and relationships between models.
 Using Heroku addon (Postgresql) the app isn't using local database for it's users.
