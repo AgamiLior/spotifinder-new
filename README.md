@@ -3,8 +3,9 @@
 Spotifinder is a song library that shows information about a song in a playlist created by user.
 It generate data such as- song name, artist name, lyrics and the option to play the song on the application.
 
-## Installation
+Link to app: <ins>https://spotifinder-core.herokuapp.com/
 
+## Installation
 
 
 ```
@@ -27,30 +28,36 @@ JINJA
 WTFORMS
 POSTGRESQL
 SQLALCHEMY
+HEROKU
 ```
 ## DataBase
  ![ ](https://raw.githubusercontent.com/AgamiLior/spotifinder-new/main/table.png "DB-Table") 
 
 The database is pretty simple and by using certaing constraints with WTForms, and relationships between models.
+Using Heroku addon (Postgresql) the app isn't using local database for it's users.
+As one can see at the picture above, there are three tables that they all have relationship:
+- Table users generate an ID (as his primary key), email, username, image, and password
+- Table playlists generate an ID (as his primary key), title, and user_id (which considered as Foregin key as fetched from the users's table).
+- Table songs generate and ID (as his primary key), song_title, song_artist, spotify_id and playlist_id (which considered as Foregin key fetched froim playlists's table).
 
 
 
 ## API used
 ![ ](https://raw.githubusercontent.com/AgamiLior/spotifinder-new/main/User%20Flow%20to%20Api.png "API")
 
-(1) Lyric.ovh: 
-* https://lyricsovh.docs.apiary.io/#?ref=apilist.fun
+<ins>(1) Lyric.ovh:</ins>
+* <ins>https://lyricsovh.docs.apiary.io/#?ref=apilist.fun
 
-  Simple API to retrieve the lyrics of a song.
+API to retrieve the lyrics of a song.
 
 
-(2) Spotify:
-* https://developer.spotify.com/documentation/web-api/
+<ins>(2) Spotify:</ins>
+* <ins>https://developer.spotify.com/documentation/web-api/
 
 Spotify for Developers to create or work with user's existing playlist.
 
 You interact with the API to retrieve songs details such as - song name, song artist, song id.
-In addition if finds the correct URL for the song to be added to the application and let the user play it.
+In addition it finds the correct URL for the song to be added to the application and let the user play the song.
 
 ## How is it working (UI) 
 ![ ](https://raw.githubusercontent.com/AgamiLior/spotifinder-new/main/UI.png "UI")  
